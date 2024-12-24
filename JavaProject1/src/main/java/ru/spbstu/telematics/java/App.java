@@ -66,4 +66,17 @@ public class App
 
         return matrixResult;
 	}
+
+    /**
+     * Печать матрицы на консоль
+     * @param matrix матрица, которую нужно вывести
+     */
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int elem : row) {
+                System.out.print(elem + "\t");
+            }
+            System.out.println();
+        }
+    }
 }
