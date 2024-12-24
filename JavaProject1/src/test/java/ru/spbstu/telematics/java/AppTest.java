@@ -133,5 +133,26 @@ public class AppTest
             assertTrue(Arrays.equals(expected[i], result[i]));
         }
     }
+
+	public void testIncompatibleDimensions()
+	{
+		int[][] matrix1 = {
+				{1, 2},
+				{3, 4}
+		};
+
+		int[][] matrix2 = {
+				{5, 6, 7},
+				{8, 9, 10},
+				{11,12,13}
+		};
+
+		try {
+			App.multiplyMatrices(matrix1, matrix2);
+			fail("Ожидалось исключение IllegalArgumentException при несопоставимых размерах.");
+		} catch (IllegalArgumentException e) {
+			assertTrue(e.getMessage().contains("число столбцов первой матрицы (2) не равно числу строк второй матрицы (3)"));
+		}
+	}
     
 }
