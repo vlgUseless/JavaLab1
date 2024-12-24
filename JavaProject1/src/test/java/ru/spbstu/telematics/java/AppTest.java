@@ -176,5 +176,21 @@ public class AppTest
 			assertTrue(e.getMessage().contains("Первая матрица имеет неравномерные строки."));
 		}
 	}
+
+	public void testNullMatrix()
+	{
+		int[][] matrix1 = null;
+		int[][] matrix2 = {
+				{1, 2},
+				{3, 4}
+		};
+
+		try {
+			App.multiplyMatrices(matrix1, matrix2);
+			fail("Ожидалось исключение при null-матрице.");
+		} catch (IllegalArgumentException e) {
+			assertTrue(e.getMessage().contains("Матрицы не должны быть null."));
+		}
+	}
     
 }
