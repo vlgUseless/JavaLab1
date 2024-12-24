@@ -192,5 +192,21 @@ public class AppTest
 			assertTrue(e.getMessage().contains("Матрицы не должны быть null."));
 		}
 	}
+
+	public void testEmptyMatrix()
+	{
+		int[][] matrix1 = {
+				{1,2},
+				{3,4}
+		};
+		int[][] matrix2 = {}; // Пустая матрица
+
+		try {
+			App.multiplyMatrices(matrix1, matrix2);
+			fail("Ожидалось исключение при попытке умножения на пустую матрицу.");
+		} catch (IllegalArgumentException e) {
+			assertTrue(e.getMessage().contains("Матрицы не должны быть пустыми."));
+		}
+	}
     
 }
