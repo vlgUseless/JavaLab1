@@ -154,5 +154,27 @@ public class AppTest
 			assertTrue(e.getMessage().contains("число столбцов первой матрицы (2) не равно числу строк второй матрицы (3)"));
 		}
 	}
+
+	public void testRaggedMatrix()
+	{
+		int[][] matrix1 = {
+				{1, 2, 3},
+				{4, 5},    // вторая строка короче
+				{7, 8, 9}
+		};
+
+		int[][] matrix2 = {
+				{1, 2, 3},
+				{4, 5, 6},
+				{7, 8, 9}
+		};
+
+		try {
+			App.multiplyMatrices(matrix1, matrix2);
+			fail("Ожидалось исключение из-за \"рваной\" матрицы.");
+		} catch (IllegalArgumentException e) {
+			assertTrue(e.getMessage().contains("Первая матрица имеет неравномерные строки."));
+		}
+	}
     
 }
