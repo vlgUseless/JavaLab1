@@ -108,5 +108,30 @@ public class AppTest
     		assertTrue(Arrays.equals(expected[i], result[i]));
     	}
     }
+
+    public void testRectangularMatrices()
+    {
+        int[][] matrix1 = {
+                {1, 2, 3},
+                {4, 5, 6}
+        };
+
+        int[][] matrix2 = {
+                {7, 8},
+                {9, 10},
+                {11, 12}
+        };
+
+        int[][] expected = {
+                {58, 64},
+                {139, 154}
+        };
+
+        int [][] result = App.multiplyMatrices(matrix1, matrix2);
+
+        for (int i = 0; i < expected.length; i++) {
+            assertTrue(Arrays.equals(expected[i], result[i]));
+        }
+    }
     
 }
